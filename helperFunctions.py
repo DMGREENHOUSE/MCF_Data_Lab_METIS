@@ -72,7 +72,6 @@ def pathToDataSet(path):
 def getNBIPower(data_set, subsection='zerod'):
     name = 'pnbi'
     NBIPower = get_variable(data_set, name, subsection)
-    print(NBIPower)
     return NBIPower
 
 def matlabToArray(file_path, varName, isPlot=False, isShowAll=False, subsection='zerod'):
@@ -103,7 +102,6 @@ def findNearestIndex(val, array):
     return nearestIndex
 
 def averageInRange(ts, ys, timeSpan = [46,48]):
-    
     lowIndex = findNearestIndex(timeSpan[0], ts)
     highIndex = findNearestIndex(timeSpan[1], ts)
     ysInRange = ys[lowIndex:highIndex]
@@ -111,3 +109,12 @@ def averageInRange(ts, ys, timeSpan = [46,48]):
     error = np.std(ysInRange)
     return mean, error
     
+def sort2Lists(list1, list2):
+    sortedList1, sortedList2 = (list(t) for t in zip(*sorted(zip(list1, list2))))
+    return sortedList1, sortedList2 
+def sort3Lists(list1, list2, list3):
+    sortedList1, sortedList2, sortedList3 = (list(t) for t in zip(*sorted(zip(list1, list2, list3))))
+    return sortedList1, sortedList2, sortedList3
+def sort4Lists(list1, list2, list3, list4):
+    sortedList1, sortedList2, sortedList3, sortedList4 = (list(t) for t in zip(*sorted(zip(list1, list2, list3, list4))))
+    return sortedList1, sortedList2, sortedList3, sortedList4
